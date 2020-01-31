@@ -55,3 +55,15 @@ class Parking(object):
                 print "No car is present at slot number %s" % slot_no
         else:
             print "Sorry, slot number does not exist in parking lot."
+
+    def status(self):
+        """Method to show current status of parking
+        """
+
+        if not self._do_primary_checks():
+            return
+
+        print "Slot No\tRegistration No\tColour"
+        for i in self.slots.values():
+            if not i.available and i.car:
+                print "%s\t%s\t%s" % (i.slot_no, i.car.reg_no, i.car.colour)
