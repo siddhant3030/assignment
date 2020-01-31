@@ -9,7 +9,7 @@ class Parking(object):
         no_of_slots = int(no_of_slots)
 
         if len(self.slots) > 0:
-            print "Parking Lot already created"
+            print "Parking is already created"
             return
 
         if no_of_slots > 0:
@@ -27,3 +27,15 @@ class Parking(object):
         if not available_slots:
             return None
         return sorted(available_slots, key=lambda x: x.slot_no)[0]
+
+    def park(self, reg_no, colour):
+        if not self._do_primary_checks():
+            return
+
+        available_slot = self.get_nearest_available_slot()
+        if available_slot:
+            available_slot.car = car.Car.create(reg_no, colour)
+            available_slot.available = False
+            print "Allocated slot number: %s" % available_slot.slot_no
+        else:
+            print "Sorry, parking lot is full."
