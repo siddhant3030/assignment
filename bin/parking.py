@@ -92,3 +92,20 @@ class Parking(object):
             print "Not found"
 
     
+    def slot_numbers_for_cars_with_colour(self, colour):
+       
+        if not self._do_primary_checks():
+            return
+
+        slot_nos = ''
+        for pslot in self.slots.values():
+            if not pslot.available and pslot.car and \
+                pslot.car.colour == colour:
+                slot_nos += '%s ' % pslot.slot_no
+
+        if slot_nos:
+            print slot_nos[:-1]
+        else:
+            print "Not found"
+
+    
