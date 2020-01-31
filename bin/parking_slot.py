@@ -32,3 +32,13 @@ class ParkingCommands(object):
             return
         except Exception as ex:
             print "Error occured while processing input %s" % ex
+
+    def process_command(self, stdin_input):
+        inputs = stdin_input.split()
+        command = inputs[0]
+        params = inputs[1:]
+        if hasattr(self.parking, command):
+            command_function = getattr(self.parking, command)
+            command_function(*params)
+        else:
+            print "Got wrong command."
