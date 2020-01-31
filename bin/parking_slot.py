@@ -42,3 +42,17 @@ class ParkingCommands(object):
             command_function(*params)
         else:
             print "Got wrong command."
+
+if __name__ == "__main__":
+    args = sys.argv
+    if len(args) == 1:
+        pk_command = ParkingCommands()
+        pk_command.process_input()
+    elif len(args) == 2:
+        pk_command = ParkingCommands()
+        pk_command.process_file(args[1])
+    else:
+        print "Wrong number of arguments.\n" \
+                "Usage:\n" \
+                "./parking_lot.py <filename> OR \n" \
+                "./parking_lot.py"
