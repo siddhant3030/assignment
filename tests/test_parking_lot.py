@@ -33,3 +33,7 @@ def tearDownClass(cls):
     del cls.parking
 
 
+if __name__ == '__main__':
+    unittest.main()
+
+
