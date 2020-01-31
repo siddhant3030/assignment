@@ -109,11 +109,7 @@ class Parking(object):
             print "Not found"
 
     def slot_number_for_registration_number(self, reg_no):
-        """Method to find slot numbers in parking with given registration
-        number.
-        Input: reg_no - String Type
-        """
-
+     
         if not self._do_primary_checks():
             return
 
