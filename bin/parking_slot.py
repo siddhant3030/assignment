@@ -22,3 +22,13 @@ class ParkingCommands(object):
             file_obj.close()
         except Exception as ex:
             print "Error occured while processing file %s" % ex
+
+    def process_input(self):
+        try:
+            while True:
+                stdin_input = raw_input("Enter command: ")
+                self.process_command(stdin_input)
+        except (KeyboardInterrupt, SystemExit):
+            return
+        except Exception as ex:
+            print "Error occured while processing input %s" % ex
