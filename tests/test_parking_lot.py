@@ -23,3 +23,7 @@ def test_b_park(self):
                 self.assertEqual(i.car.reg_no, reg_no, "Park failed")
                 self.assertEqual(i.car.colour, colour, "Park failed")
 
+def test_c_leave(self):
+        self.parking.leave(self.allocated_slot)
+        self.assertTrue(self.parking.slots[self.allocated_slot].available, "Leave failed.")
+
