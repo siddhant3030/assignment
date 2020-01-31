@@ -39,3 +39,19 @@ class Parking(object):
             print "Allocated slot number: %s" % available_slot.slot_no
         else:
             print "Sorry, parking lot is full."
+
+    def leave(self, slot_no):
+        slot_no = int(slot_no)
+        if not self._do_primary_checks():
+            return
+
+        if slot_no in self.slots:
+            pslot = self.slots[slot_no]
+            if not pslot.available and pslot.car:
+                pslot.car = None
+                pslot.available = True
+                print "Slot number %s is free" % slot_no
+            else:
+                print "No car is present at slot number %s" % slot_no
+        else:
+            print "Sorry, slot number does not exist in parking lot."
