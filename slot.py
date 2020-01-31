@@ -12,3 +12,20 @@ class PSlot(object):
     @car.setter
     def car(self, value):
         self._car = value
+ 
+     
+    @property
+    def slot_no(self):
+        return self._slot_no
+
+    @slot_no.setter
+    def slot_no(self, value):
+        self._slot_no = value
+
+    @property
+    def available(self):
+        return self._available
+
+    @available.setter
+    def available(self, value):
+        self._available = value
