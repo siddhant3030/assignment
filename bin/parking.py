@@ -21,3 +21,9 @@ class Parking(object):
         else:
             print "Number of slots provided is incorrect."
         return
+
+    def get_nearest_available_slot(self):
+        available_slots = filter(lambda x: x.available, self.slots.values())
+        if not available_slots:
+            return None
+        return sorted(available_slots, key=lambda x: x.slot_no)[0]
