@@ -108,4 +108,25 @@ class Parking(object):
         else:
             print "Not found"
 
+    def slot_number_for_registration_number(self, reg_no):
+        """Method to find slot numbers in parking with given registration
+        number.
+        Input: reg_no - String Type
+        """
+
+        if not self._do_primary_checks():
+            return
+
+        slot_no = ''
+        for pslot in self.slots.values():
+            if not pslot.available and pslot.car and \
+                pslot.car.reg_no == reg_no:
+                slot_no = pslot.slot_no
+                break
+
+        if slot_no:
+            print slot_no
+        else:
+            print "Not found"
+
     
