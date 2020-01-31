@@ -67,3 +67,11 @@ class Parking(object):
         for i in self.slots.values():
             if not i.available and i.car:
                 print "%s\t%s\t%s" % (i.slot_no, i.car.reg_no, i.car.colour)
+
+    def _do_primary_checks(self):
+        if len(self.slots) == 0:
+            print "Parking Lot not created"
+            return False
+        return True
+
+    
