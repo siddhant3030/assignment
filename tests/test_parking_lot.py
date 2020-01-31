@@ -27,3 +27,9 @@ def test_c_leave(self):
         self.parking.leave(self.allocated_slot)
         self.assertTrue(self.parking.slots[self.allocated_slot].available, "Leave failed.")
 
+
+@classmethod
+def tearDownClass(cls):
+    del cls.parking
+
+
