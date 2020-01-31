@@ -75,3 +75,20 @@ class Parking(object):
         return True
 
     
+    def registration_numbers_for_cars_with_colour(self, colour):
+
+        if not self._do_primary_checks():
+            return
+
+        reg_nos = ''
+        for pslot in self.slots.values():
+            if not pslot.available and pslot.car and \
+                pslot.car.colour == colour:
+                reg_nos += '%s ' % pslot.car.reg_no
+
+        if reg_nos:
+            print reg_nos[:-1]
+        else:
+            print "Not found"
+
+    
