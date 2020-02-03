@@ -1,9 +1,9 @@
-import os
-import sys
+#!/usr/bin/python
+import os, sys
 import parking
 
-
 class ParkingCommands(object):
+
     def __init__(self):
         self.parking = parking.Parking()
 
@@ -33,6 +33,7 @@ class ParkingCommands(object):
         except Exception as ex:
             print "Error occured while processing input %s" % ex
 
+
     def process_command(self, stdin_input):
         inputs = stdin_input.split()
         command = inputs[0]
@@ -42,6 +43,7 @@ class ParkingCommands(object):
             command_function(*params)
         else:
             print "Got wrong command."
+
 
 if __name__ == "__main__":
     args = sys.argv
