@@ -1,11 +1,11 @@
 #!/bin/bash
 if [ $# -eq 0 ]
   then
-    python bin/parking_lot.py
+    python bin/parking_slot.py
 else
     if [ -e $1 ]
     then
-        python bin/parking_lot.py $1
+        python bin/parking_slot.py $1
     else
         echo "$1 File not exists"
     fi
