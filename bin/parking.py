@@ -1,3 +1,8 @@
+from bin import lot, parking, car
+
+
+
+
 class Parking(object):
     """
     Parking class which has details about parking slots
