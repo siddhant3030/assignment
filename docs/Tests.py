@@ -12,7 +12,11 @@ class TestParkingLotUtilities(unittest.TestCase):
         testParkingLot = create_parking_lot(str(6))
         self.assertEqual(len(testParkingLot.get_slots()), 6)
 
-  
+    
+    #if the parking lot is full
+    def test_parking_lot_is_full(self):
+        testParkingLot = create_parking_lot(str(6))
+        self.assertEqual(parking_lot_is_full(testParkingLot), False)
 
 
 if __name__ == '__main__':
