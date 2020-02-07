@@ -22,7 +22,18 @@ class TestParkingLotUtilities(unittest.TestCase):
     def test_park_car_lot_not_defined(self):
         testString = park_car(None, 'KA-01-AA-1111', 'White')
         self.assertEqual('Parking lot is not defined', testString)
+    
+    #more tests on car 
+    def test_park_car_lot_allocated(self):
+        testParkingLot = create_parking_lot(str(6))
+        testString = park_car(testParkingLot, 'KA-01-AA-1112', 'White')
+        self.assertEqual('Allocated slot number: 1', testString)
 
+    def test_park_car_lot_full(self):
+        testParkingLot = create_parking_lot(str(1))
+        testParkString = park_car(testParkingLot, 'KA-01-AA-1112', 'White')
+        testString = park_car(testParkingLot, 'KA-01-AA-1113', 'White')
+        self.assertEqual('Sorry, parking lot is full', testString)
 
 
 if __name__ == '__main__':
