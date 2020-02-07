@@ -35,6 +35,7 @@ class TestParkingLotUtilities(unittest.TestCase):
         testString = park_car(testParkingLot, 'KA-01-AA-1113', 'White')
         self.assertEqual('Sorry, parking lot is full', testString)
 
+    #testing car by color
     def test_car_by_colour(self):
         testParkingLot = create_parking_lot(str(6))
         testParkString = park_car(testParkingLot, 'KA-01-AA-1117', 'White')
