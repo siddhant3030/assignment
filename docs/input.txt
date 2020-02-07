@@ -1,5 +1,4 @@
-leave 2
-park MH-04-AY-1111 Yellow
+park MH-04-AY-1111 red
 create_parking_lot 6
 park HR-11-H-1234 White
 park HR-11-AA-9923 White
