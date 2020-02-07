@@ -1,129 +1,54 @@
 class Car:
-    """
-    Car class
-    """
-
     def __init__(self, registrationNumber, colour):
-        """
-        Constructor for Car object
-
-        ARGS:
-            registrationNumber(str) - given registration number of the car
-            colour(str) - given colour of the car
-        """
         self.carRegistrationNumber = registrationNumber
         self.carColour = colour
         self.carSlot = None
 
     def set_slot(self, slot):
-        """
-        Setter for slot
-
-        ARGS:
-            slot(int) - the allocated slot for the car
-        """
         self.carSlot = slot
 
     def get_slot(self):
-        """
-        Getter for slot
-        """
         return self.carSlot
 
     def get_colour(self):
-        """
-        Getter for colour
-        """
         return self.carColour
 
     def get_registration_number(self):
-        """
-        Getter for Registration Number
-        """
         return self.carRegistrationNumber
 
 
 class ParkingLot:
-    """
-    Parking Lot Class
-    """
-
     def __init__(self, size):
-        """
-        Constructor for Parking Lot
-
-        ARGS:
-            size(int) - size of the parking lot
-        """
         self.parkedCars = 0
         self.slots = dict.fromkeys([i for i in range(1, int(size)+1)])
 
     def increment_parked_cars(self):
-        """
-        will increment the number of parked cars
-        """
         self.parkedCars += 1
 
     def decrement_parked_cars(self):
-        """
-        will decrement the number of parked cars
-        """
         self.parkedCars -= 1
 
     def get_parked_cars(self):
-        """
-        getter for the number of parked cars
-        """
         return self.parkedCars
 
     def get_slots(self):
-        """
-        getter for the parking slots
-        """
         return self.slots
 
     def set_slots(self, slot, value):
-        """
-        setter for parking slots
-
-        ARGS:
-            slot(int) - where to place the incoming value
-            value(Nonetype or Car object) - for setting the value on the given slot
-        """
         self.slots[slot] = value
 
 
 def create_parking_lot(size):
-    """
-    creates a parking lot
-
-    ARGS:
-        size(str) - size of the parking lot
-    """
     parkingLot = ParkingLot(int(size))
     print('Created a parking slot with ' + size + ' slots')
     return parkingLot
 
 
 def parking_lot_is_full(parkingLot):
-    """
-    checks whether parking lot is full or not
-
-    ARGS:
-        parkingLot(ParkingLot Object)
-    """
     return len(parkingLot.get_slots()) <= parkingLot.get_parked_cars()
 
 
 def park_car(parkingLot, registrationNumber, colour):
-    """
-    will park the car in the parking lot and prints the allocated slot in the parking lot
-
-    ARGS:
-        parkingLot(ParkingLot Object)
-        registrationNumber(str) - given registration number for the car
-        colour(str) - given colour for the car
-    """
     returnString = ''
     if parkingLot:
         if not parking_lot_is_full(parkingLot):
@@ -144,13 +69,6 @@ def park_car(parkingLot, registrationNumber, colour):
 
 
 def car_departure(parkingLot, inputSlot):
-    """
-    will leave the parking lot from desired slot and prints the leaving slot
-
-    ARGS:
-        parkingLot(ParkingLot Object)
-        inputSlot(str) - given slot number
-    """
     returnString = ''
     if parkingLot:
         if not parkingLot.get_parked_cars():
@@ -172,12 +90,6 @@ def car_departure(parkingLot, inputSlot):
 
 
 def lot_status(parkingLot):
-    """
-    return the status of Parking Lot
-
-    ARGS:
-        parkingLot(ParkingLot Object)
-    """
     returnString = ''
     if parkingLot:
         print('Slot No.\tRegistration No\tColour')
@@ -193,13 +105,6 @@ def lot_status(parkingLot):
 
 
 def car_by_colour(parkingLot, inputColour):
-    """
-    prints the registration number of the cars for the given colour
-
-    ARGS:
-        parkingLot(ParkingLot Object)
-        inputColour(str) - given Colour
-    """
     returnString = ''
     if parkingLot:
         if not parkingLot.get_parked_cars():
@@ -220,13 +125,6 @@ def car_by_colour(parkingLot, inputColour):
 
 
 def slot_by_colour(parkingLot, inputColour):
-    """
-    prints the slot number of the cars for the given colour
-
-    ARGS:
-        parkingLot(ParkingLot Object)
-        inputColour(str) - given colour
-    """
     returnString = ''
     if parkingLot:
         if not parkingLot.get_parked_cars():
@@ -247,13 +145,6 @@ def slot_by_colour(parkingLot, inputColour):
 
 
 def slot_by_car_number(parkingLot, number):
-    """
-    prints the slot number of the cars for the given number
-
-    ARGS:
-        parkingLot(ParkingLot Object)
-        number(str) - given registration number
-    """
     returnString = ''
     if parkingLot:
         if not parkingLot.get_parked_cars():
